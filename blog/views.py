@@ -34,3 +34,12 @@ def deleteBlog(request,id):
         return Response(status=status.HTTP_204_NO_CONTENT)
     else:
         return Response({"deleted":False})
+@api_view(["POST"])
+
+def editBlog(request,id):
+    blog = Blog.objects.filter(id=id)[0]
+    blog = BlogSerilizer(blog,many=False,data=request.data)
+    if blog.is_valid():
+        blog.save()
+        return Response({"data":"created"})
+    return Response({"data":"null"})
