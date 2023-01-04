@@ -12,11 +12,11 @@ const errorSlice = createSlice({
         addErrors:(error,action)=>{
             error.errors.push(...action.payload)
         },
-        removeError:(error,action)=>{
-            error.errors.remove(action.payload.id)
+        removeErrors:(error)=>{
+            error.errors = []
         }
     }
 })
 
-export const {addError,addErrors,removeError} = errorSlice.actions
+export const {addError,addErrors,removeErrors} = errorSlice.actions
 export default errorSlice

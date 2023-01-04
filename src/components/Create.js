@@ -1,7 +1,10 @@
 import React from 'react'
+import { useDispatch } from 'react-redux';
+import {addBlog} from "../reducers/blogReducer"
 
 function Create() {
   
+  const dispatch = useDispatch() 
   function handleSubmit(e){
     e.preventDefault();
     const title = document.getElementById("title")
@@ -15,9 +18,9 @@ function Create() {
       body: JSON.stringify({title:title.value,body:body.value})
     }).then(res=>res.json())
     .then(data=>{
-      title.value = ""
-      body.value = ""
-      console.log("data" ,data);
+      title.value = "";
+      body.value = "";
+      dispatch(addBlog(data))
     })
   }
 

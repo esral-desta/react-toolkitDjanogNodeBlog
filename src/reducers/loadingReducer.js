@@ -2,13 +2,13 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const loadingSlice = createSlice({
     name:'loading',
-    initialState:true,
+    initialState:{value:true},
     reducers:{
         setLoaded:(loading)=>{
-            loading = false
+            loading.value = false
         },
         setLoading:(loading)=>{
-            loading=true
+            loading.value = true
         }
 
     }

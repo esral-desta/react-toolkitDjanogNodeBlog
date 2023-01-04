@@ -13,7 +13,8 @@ const blogSLice = createSlice({
             blog.blogs.push(...action.payload)
         },
         removeBlog:(blog,action)=>{
-            return blog
+            const newTodos = blog.blogs.filter(todo => todo.id != action["payload"])
+            blog.blogs = newTodos
         }
     }
 })
